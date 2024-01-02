@@ -1,8 +1,8 @@
 import React from 'react';
-// import { BsFillBagFill } from "react-icons/bs";
 import './Card.css';
+// import { BsFillBagFill } from "react-icons/bs";
 
-const Card = ({img, title, price}) => {
+const Card = ({img, title, price, rating}) => {
     return (
         <>
           <section className="card">
@@ -15,7 +15,10 @@ const Card = ({img, title, price}) => {
               </section> */}
               <section className="card-price">
                 <div className="price">
-                  {price}
+                  Rs. {price}
+                </div>
+                <div>
+                  {rating.rate}
                 </div>
                 {/* <div className="bag">
                   <BsFillBagFill className="bag-icon" />

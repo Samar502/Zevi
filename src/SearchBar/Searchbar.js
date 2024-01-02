@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './SearchBar.css';
 
 const Searchbar = ({handleSearch, search}) => {
   
@@ -7,10 +8,10 @@ const Searchbar = ({handleSearch, search}) => {
         <div className="nav-container">
           <input
             className="search-input"
-            type="text"
+            type="search"
             onChange={handleSearch}
             value={search}
-            placeholder="Enter your search shoes."
+            placeholder="Search"
           />
         </div>
         {/* <div className="profile-container">
