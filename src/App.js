@@ -14,6 +14,7 @@ const App = () => {
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(" ");
   const [selectedPriceRange, setSelectedPriceRange] = useState(0);
+  const [selectedRating, setSelectedRating] = useState(0);
 
   useEffect(() => {
     // Define the API endpoint URL
@@ -75,6 +76,10 @@ const App = () => {
     setSelectedPriceRange(event.target.value);
   }
 
+  const handleRating = (event) => {
+    setSelectedRating(event.target.value);
+  }
+
   const filteredItems = products.filter((product) => product.category.toLowerCase().indexOf(search.toLowerCase())!==-1);
 
   function filteredData(products, search) {
@@ -86,7 +91,7 @@ const App = () => {
 
     // console.log(filteredProducts);
     // console.log(selectedCategory);
-    if(selectedCategory || selectedPriceRange){
+    if(selectedCategory || selectedPriceRange || selectedRating){
       filteredProducts = filteredProducts.filter((fproduct) =>{
         // console.log(category);
         // console.log(fproduct.category);
@@ -96,9 +101,11 @@ const App = () => {
         const category_match =(selectedCategory == " " || fproduct.category == selectedCategory)
         let pr = parseInt(fproduct.price)>100 ? 2:1;
         const price_range_match = (selectedPriceRange == 0 || pr == selectedPriceRange)
+        let stars = Math.round(fproduct.rating.rate);
+        const rating_match = (selectedRating == 0 || stars == selectedRating)
         // console.log(`Category match is ${category_match}`);
         // console.log(`Price match is ${price_range_match}`);
-        return category_match && price_range_match;
+        return category_match && price_range_match && rating_match;
       });
       // console.log(filteredProducts);
       // console.log(selectedPriceRange);
@@ -127,9 +134,9 @@ const App = () => {
 
   return (
     <>
-      <Searchbar handleSearch={handleSearch} search={search}/>
-      <SideBar handleCategory={handleCategory} handlePriceRange={handlePriceRange}/>
-      <Products result={result}/>
+       <SideBar handleCategory={handleCategory} handlePriceRange={handlePriceRange} handleRating={handleRating}/>
+        <Searchbar handleSearch={handleSearch} search={search}/>
+        <Products result={result}/>
     </>
   );
 };

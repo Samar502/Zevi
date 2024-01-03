@@ -3,6 +3,9 @@ import './Card.css';
 // import { BsFillBagFill } from "react-icons/bs";
 
 const Card = ({img, title, price, rating}) => {
+
+    const filledStars = parseInt(Math.round(rating.rate));
+
     return (
         <>
           <section className="card">
@@ -17,8 +20,16 @@ const Card = ({img, title, price, rating}) => {
                 <div className="price">
                   Rs. {price}
                 </div>
-                <div>
-                  {rating.rate}
+                <div className="star-rating">
+                {[...Array(5)].map((_, index) => (
+                    <span
+                    key={index}
+                    className={`star ${index < filledStars ? 'filled' : ''}`}
+                    >
+                    {index < filledStars ? '\u2605' : '\u2606'}
+                    </span>
+                ))} 
+                ({rating.count})
                 </div>
                 {/* <div className="bag">
                   <BsFillBagFill className="bag-icon" />

@@ -2,9 +2,9 @@ import React from 'react';
 import Category from './Category/Category';
 import Price from './Price/Price';
 import './SideBar.css';
-// import Ratings from './Ratings/Ratings';
+import Ratings from './Ratings/Ratings';
 
-const SideBar = ({handleCategory, handlePriceRange}) => {
+const SideBar = ({handleCategory, handlePriceRange, handleRating}) => {
   return (
     <>
       <section className="sidebar">
@@ -13,7 +13,7 @@ const SideBar = ({handleCategory, handlePriceRange}) => {
         </div>
         <Category handleCategory={handleCategory} />
         <Price handlePriceRange={handlePriceRange} />
-        {/* <Ratings handleChange={handleCategory} /> */}
+        <Ratings handleRating={handleRating} />
       </section>
     </>
   )
