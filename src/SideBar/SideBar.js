@@ -4,7 +4,7 @@ import Price from './Price/Price';
 import './SideBar.css';
 // import Ratings from './Ratings/Ratings';
 
-const SideBar = ({handleCategory}) => {
+const SideBar = ({handleCategory, handlePriceRange}) => {
   return (
     <>
       <section className="sidebar">
@@ -12,7 +12,7 @@ const SideBar = ({handleCategory}) => {
           <h1>🛒</h1>
         </div>
         <Category handleCategory={handleCategory} />
-        <Price handleCategory={handleCategory} />
+        <Price handlePriceRange={handlePriceRange} />
         {/* <Ratings handleChange={handleCategory} /> */}
       </section>
     </>

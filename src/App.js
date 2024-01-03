@@ -12,7 +12,8 @@ const App = () => {
 
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(" ");
+  const [selectedPriceRange, setSelectedPriceRange] = useState(0);
 
   useEffect(() => {
     // Define the API endpoint URL
@@ -30,17 +31,15 @@ const App = () => {
         setProducts(response.data);  // Assuming the response contains JSON data
         // console.log(Object.values(response.data));
         // console.log(typeof(response.data))
+        // products.forEach((product) => {
+        //   product["pr"] = product.price > 100 ? 1 : 0;
+        // })
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
   }, []);
   // console.log(products);
-  let ratings = []
-  products.forEach(product => {
-    // console.log(product);
-    ratings.push(product.value);
-  })
   // console.log(products);
   // console.log(ratings);
   // console.log(ratings);
@@ -56,14 +55,25 @@ const App = () => {
   // console.log(products[0].rating.rate);
   // console.log("ok");
   // console.log(JSON.stringify(products.rating));
+
+  // useEffect(() => {
+  //   filteredData(products, search);
+  // }, [selectedCategory, selectedPriceRange]);
   
   const handleSearch = (e) => {
     setSearch(e.target.value);
   }
 
   const handleCategory = (event) => {
-    setSelectedCategory(event.target.value);
+    let val = event.target.value;
+    // console.log(`val is ${val}`);
+    setSelectedCategory(val);
   };
+
+  const handlePriceRange = (event) => {
+    // console.log(`Price Range is ${event.target.value}`);
+    setSelectedPriceRange(event.target.value);
+  }
 
   const filteredItems = products.filter((product) => product.category.toLowerCase().indexOf(search.toLowerCase())!==-1);
 
@@ -74,16 +84,34 @@ const App = () => {
       filteredProducts = filteredItems;
     }
 
-    console.log(filteredProducts);
-    console.log(selectedCategory);
-    if(selectedCategory){
-      filteredProducts = filteredProducts.filter(({category}) => 
+    // console.log(filteredProducts);
+    // console.log(selectedCategory);
+    if(selectedCategory || selectedPriceRange){
+      filteredProducts = filteredProducts.filter((fproduct) =>{
         // console.log(category);
-        category == selectedCategory
-      );
+        // console.log(fproduct.category);
+        // console.log(fproduct.price);
+        // console.log(selectedCategory); 
+        // console.log(pr);
+        const category_match =(selectedCategory == " " || fproduct.category == selectedCategory)
+        let pr = parseInt(fproduct.price)>100 ? 2:1;
+        const price_range_match = (selectedPriceRange == 0 || pr == selectedPriceRange)
+        // console.log(`Category match is ${category_match}`);
+        // console.log(`Price match is ${price_range_match}`);
+        return category_match && price_range_match;
+      });
+      // console.log(filteredProducts);
+      // console.log(selectedPriceRange);
+      // if(selectedPriceRange){
+      //   filteredProducts = filteredProducts.filter((fproduct) => { 
+      //     console.log(`pr is ${pr}`);
+      //     console.log(`selected pr is ${selectedPriceRange}`);
+      //     return pr == selectedPriceRange;
+      //   })
+      // }
     }
-    console.log("ok");
-    console.log(filteredProducts);
+    // console.log("ok");
+    // console.log(filteredProducts);
     
     return filteredProducts.map(({image, title, price, rating}) => (
       <Card className="card"
@@ -100,7 +128,7 @@ const App = () => {
   return (
     <>
       <Searchbar handleSearch={handleSearch} search={search}/>
-      <SideBar handleCategory={handleCategory}/>
+      <SideBar handleCategory={handleCategory} handlePriceRange={handlePriceRange}/>
       <Products result={result}/>
     </>
   );
