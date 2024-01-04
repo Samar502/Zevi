@@ -1,9 +1,17 @@
 /* .sidebar-rating{
     display: flex;
 } */
+.ratings-heading{
+  display: inline;
+  font-size: 15px;
+  justify-content: space-evenly;
+  align-items: normal;
+  display: flex;
+}
 
 .sidebar-title{
     font-size: medium;
+    font-weight: bold;
 }
 
 .star{

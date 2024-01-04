@@ -10,17 +10,18 @@ const Price = ({handlePriceRange}) => {
 
   return (
     <>
-      <div className="ml">
+      <div className="sidebar-category">
         <br/>
+        <div className='price-heading'>
         <span className="sidebar-title price-title">PRICE RANGE  </span>
         {!dropdown && (
         <ChevronRightIcon className="arrow" onClick={() => setDropDown(!dropdown)} />)}
         {dropdown && (
           <ExpandMoreIcon className="arrow" onClick={() => setDropDown(!dropdown)} />
         )}
-
+        </div>
         {dropdown && (
-          <div className='sidebar-price'>
+          <div className='sidebar-price'  >
             <br/>
             <label className="sidebar-label-container">
               <input onChange={handlePriceRange} type="radio" value="0" name="test2" />

@@ -2,14 +2,22 @@
   flex-grow: 1;
 } */
 
+.price-heading{
+  display: inline;
+  font-size: 15px;
+  justify-content: space-evenly;
+  align-items: normal;
+  display: flex;
+}
+
 .price-title{
   font-size: medium;
 }
 
 .price-title {
-    margin-top: 20px;
+    /* margin-top: 20px; */
   }
   
   .ml {
-    margin-left: 20px;
+    /* margin-left: 20px; */
   }

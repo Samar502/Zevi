@@ -10,13 +10,14 @@ const Ratings = ({handleRating}) => {
   return (
       <div className='sidebar-rating'>
         <br/>
+        <div className='ratings-heading'>
       <span className="sidebar-title">RATINGS  </span>
         {!dropdown && (
           <ChevronRightIcon className="arrow" onClick={() => setDropDown(!dropdown)} />)}
           {dropdown && (
             <ExpandMoreIcon className="arrow" onClick={() => setDropDown(!dropdown)} />
         )}
-
+        </div>
         {dropdown && (
           <div>
             <br/>
