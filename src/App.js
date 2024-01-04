@@ -15,6 +15,8 @@ const App = () => {
   const [selectedCategory, setSelectedCategory] = useState(" ");
   const [selectedPriceRange, setSelectedPriceRange] = useState(0);
   const [selectedRating, setSelectedRating] = useState(0);
+  // const [favourite, setFavourite] = useState(false);
+  const [wishlist, setWishlist] = useState([]);
 
   useEffect(() => {
     // Define the API endpoint URL
@@ -71,6 +73,18 @@ const App = () => {
     setSelectedCategory(val);
   };
 
+  // const handleClick = (event) => {
+  //   setFavourite(!favourite);
+  // };
+
+  const addToWishlist = (p_id) => {
+    setWishlist((prevWishlist) => [...prevWishlist, p_id]);
+  };
+
+  const removeFromWishlist = (p_id) => {
+    setWishlist((prevWishlist) => prevWishlist.filter((id) => id!==p_id));
+  }
+
   const handlePriceRange = (event) => {
     // console.log(`Price Range is ${event.target.value}`);
     setSelectedPriceRange(event.target.value);
@@ -120,12 +134,16 @@ const App = () => {
     // console.log("ok");
     // console.log(filteredProducts);
     
-    return filteredProducts.map(({image, title, price, rating}) => (
+    return filteredProducts.map(({image, title, price, rating, id}) => (
       <Card className="card"
         img = {image}
         title = {title}
         price = {price}
         rating = {rating}
+        onClick = {() => wishlist.includes(id)? removeFromWishlist(id) : addToWishlist(id)}
+        // favourite = {favourite}
+        wishlist = {wishlist}
+        id = {id}
       />
     ))
   }

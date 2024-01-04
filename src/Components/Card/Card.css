@@ -27,3 +27,11 @@
 .star{
     color: #ffd700;
 }
+
+.in-wishlist{
+    color: red;
+}
+
+.not-in-wishlist{
+    color: grey;
+}
