@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import Input from '../../Components/Input/Input';
 import './Category.css';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -12,13 +11,11 @@ const Category = ({handleCategory}) => {
     <div className='sidebar-category'>
       <div className='category-heading'>
       <span className="sidebar-title">CATEGORY  </span>
-      {/* <div className='dropdown-icon'> */}
       {!dropdown && (
         <ChevronRightIcon className="arrow" onClick={() => setDropDown(!dropdown)} />)}
         {dropdown && (
           <ExpandMoreIcon className="arrow" onClick={() => setDropDown(!dropdown)} />
         )}
-        {/* </div> */}
       </div>
 
       {dropdown && (

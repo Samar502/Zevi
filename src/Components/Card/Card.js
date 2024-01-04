@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './Card.css';
-// import { BsFillBagFill } from "react-icons/bs";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
@@ -8,7 +7,6 @@ const Card = ({img, title, price, rating, onClick, wishlist, id}) => {
 
     const [hovered, setHovered] = useState(false);
     const filledStars = parseInt(Math.round(rating.rate));
-    // console.log(hovered);
     return (
         <>
           <section className="card">
@@ -27,10 +25,6 @@ const Card = ({img, title, price, rating, onClick, wishlist, id}) => {
             )}
             <div className="card-details">
               <h3 className="card-title">{title}</h3>
-              {/* <section className="card-reviews">
-                {star} {star} {star} {star}
-                <span className="total-reviews">{reviews}</span>
-              </section> */}
               <section className="card-price">
                 <div className="price">
                   Rs. {price}
@@ -46,9 +40,6 @@ const Card = ({img, title, price, rating, onClick, wishlist, id}) => {
                 ))} 
                 ({rating.count})
                 </div>
-                {/* <div className="bag">
-                  <BsFillBagFill className="bag-icon" />
-                </div> */}
               </section>
             </div>
           </section>
