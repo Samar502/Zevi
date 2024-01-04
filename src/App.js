@@ -150,9 +150,15 @@ const App = () => {
 
   return (
     <>
+      <div className='main'>
+       <section className='outer-sidebar'>
        <SideBar handleCategory={handleCategory} handlePriceRange={handlePriceRange} handleRating={handleRating}/>
+       </section>
+       <div className='outer-main'>
         <Searchbar handleSearch={handleSearch} search={search}/>
         <Products result={result}/>
+        </div>
+        </div>
     </>
   );
 };

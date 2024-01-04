@@ -20,7 +20,7 @@ const Price = ({handlePriceRange}) => {
         )}
 
         {dropdown && (
-          <div>
+          <div className='sidebar-price'>
             <br/>
             <label className="sidebar-label-container">
               <input onChange={handlePriceRange} type="radio" value="0" name="test2" />

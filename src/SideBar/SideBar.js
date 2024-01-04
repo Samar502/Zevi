@@ -8,12 +8,14 @@ const SideBar = ({handleCategory, handlePriceRange, handleRating}) => {
   return (
     <>
       <section className="sidebar">
+        <div className="sidebar-inner">
         <div className="logo-container">
-          <h1>🛒</h1>
+          <h3>Search Results</h3>
         </div>
         <Category handleCategory={handleCategory} />
         <Price handlePriceRange={handlePriceRange} />
         <Ratings handleRating={handleRating} />
+        </div>
       </section>
     </>
   )

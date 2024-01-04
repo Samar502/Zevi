@@ -8,7 +8,7 @@ const Ratings = ({handleRating}) => {
   const [dropdown,setDropDown] = useState(false);
   
   return (
-      <div>
+      <div className='sidebar-rating'>
         <br/>
       <span className="sidebar-title">RATINGS  </span>
         {!dropdown && (

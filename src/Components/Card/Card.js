@@ -12,7 +12,7 @@ const Card = ({img, title, price, rating, onClick, wishlist, id}) => {
     return (
         <>
           <section className="card">
-            <div>
+            <div className='wishlist'>
               {!wishlist.includes(id) &&
               <FavoriteBorderIcon onClick={onClick} className="not-in-wishlist"/>}
               {wishlist.includes(id) && 

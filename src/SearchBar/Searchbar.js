@@ -4,7 +4,7 @@ import './SearchBar.css';
 const Searchbar = ({handleSearch, search}) => {
   
     return (
-        <nav>
+        <nav >
         <div className="nav-container">
           <input
             className="search-input"

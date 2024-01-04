@@ -9,7 +9,7 @@ const Category = ({handleCategory}) => {
   const [dropdown,setDropDown] = useState(false);
 
   return (
-    <div>
+    <div className='sidebar-category'>
       <span className="sidebar-title">CATEGORY  </span>
       {!dropdown && (
         <ChevronRightIcon className="arrow" onClick={() => setDropDown(!dropdown)} />)}
