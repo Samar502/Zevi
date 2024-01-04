@@ -15,7 +15,6 @@ const App = () => {
   const [selectedCategory, setSelectedCategory] = useState(" ");
   const [selectedPriceRange, setSelectedPriceRange] = useState(0);
   const [selectedRating, setSelectedRating] = useState(0);
-  // const [favourite, setFavourite] = useState(false);
   const [wishlist, setWishlist] = useState([]);
 
   useEffect(() => {
@@ -72,10 +71,6 @@ const App = () => {
     // console.log(`val is ${val}`);
     setSelectedCategory(val);
   };
-
-  // const handleClick = (event) => {
-  //   setFavourite(!favourite);
-  // };
 
   const addToWishlist = (p_id) => {
     setWishlist((prevWishlist) => [...prevWishlist, p_id]);
@@ -144,6 +139,9 @@ const App = () => {
         // favourite = {favourite}
         wishlist = {wishlist}
         id = {id}
+        // onMouseEnter = {() => addHover()}
+        // onMouseLeave = {() => removeHover()}
+        // hovered = {hovered}
       />
     ))
   }

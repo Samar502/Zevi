@@ -6,8 +6,9 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const Card = ({img, title, price, rating, onClick, wishlist, id}) => {
 
+    const [hovered, setHovered] = useState(false);
     const filledStars = parseInt(Math.round(rating.rate));
-
+    // console.log(hovered);
     return (
         <>
           <section className="card">
@@ -18,7 +19,12 @@ const Card = ({img, title, price, rating, onClick, wishlist, id}) => {
               <FavoriteIcon onClick={onClick} className="in-wishlist"/>
               }
             </div>
-            <img src={img} alt={title} className="card-img" />
+            
+            <img src={img} alt={title} className="card-img" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}/>
+            
+            {hovered  && (
+              <div className="view-product" >View Product</div>
+            )}
             <div className="card-details">
               <h3 className="card-title">{title}</h3>
               {/* <section className="card-reviews">

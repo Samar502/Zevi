@@ -35,3 +35,15 @@
 .not-in-wishlist{
     color: grey;
 }
+
+.view-product{
+  position: relative;
+  top: -10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(70, 81, 185, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+  /* display: block; */
+  z-index: 99;
+}
