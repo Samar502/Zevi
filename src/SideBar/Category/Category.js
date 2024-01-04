@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import Input from '../../Components/Input/Input';
 import './Category.css';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const Category = ({handleCategory}) => {
+
+  const [dropdown,setDropDown] = useState(false);
+
   return (
     <div>
-      <h2 className="sidebar-title">CATEGORY</h2>
+      <span className="sidebar-title">CATEGORY  </span>
+      {!dropdown && (
+        <ChevronRightIcon className="arrow" onClick={() => setDropDown(!dropdown)} />)}
+        {dropdown && (
+          <ExpandMoreIcon className="arrow" onClick={() => setDropDown(!dropdown)} />
+        )}
 
+      {dropdown && (
       <div>
+        <br/>
         <label className="sidebar-label-container">
           <input onChange={handleCategory} type="radio" value=" " name="test" />
           <span className="checkmark"></span>All
@@ -38,6 +50,7 @@ const Category = ({handleCategory}) => {
         </label>
 
       </div>
+      )}
     </div>
   );
 }
